@@ -29,7 +29,9 @@ def main():
     processes.append(Process(target=increase_balance, args=(balance, lock)))
     processes.append(Process(target=decrease_balance, args=(balance, lock)))
 
-    for i in range(1, 6):
+    n = int(input("Okuyucu proses sayısı n: "))
+
+    for i in range(1, n + 1):
         processes.append(Process(target=read_balance, args=(balance, lock, i)))
 
     for p in processes:
